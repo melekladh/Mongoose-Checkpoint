@@ -1,6 +1,9 @@
 const express=require("express")
 const router=express.Router()
 const User=require("../models/userSchema")
+// Create several people with Model.create()
+
+
 router.post("/postt",async(req,res)=>{
 
     try {
@@ -12,15 +15,10 @@ router.post("/postt",async(req,res)=>{
     }
 })
 
-router.get("/get",async(req,res)=>{
+// Find all the people having a given name, using Model.find() -> [Person]
 
-    try {
-        res.status(201).json({ msg:"user created"})
-    } catch (error) {
-        res.json({ err:"sthng went wrong try again ",error})
 
-    }
-})
+
 router.get("/getusers",async(req,res)=>{
 
     try {
@@ -32,6 +30,7 @@ router.get("/getusers",async(req,res)=>{
 
     }
 })
+// Find just one person which has a certain food in the person's favorites, using Model 
 router.get("/getfoods/:food",async(req,res)=>{
 
     try {
@@ -43,6 +42,7 @@ router.get("/getfoods/:food",async(req,res)=>{
 
     }
 })
+// Find the only person having a given _id
 router.get("/getuser/:user",async(req,res)=>{
 
     try {
@@ -54,6 +54,9 @@ router.get("/getuser/:user",async(req,res)=>{
 
     }
 })
+// Find a person by id and set the person's age to 20.
+
+
 router.put("/updateuser/:user",async(req,res)=>{
 
     try {
@@ -65,7 +68,7 @@ router.put("/updateuser/:user",async(req,res)=>{
 
     }
 })
-
+// Delete one person by the person's _id.
 router.delete("/deleteuser/:user",async(req,res)=>{
 
     try {
