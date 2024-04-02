@@ -35,7 +35,7 @@ router.get("/getfoods/:food",async(req,res)=>{
 
     try {
         const users=await User.findOne({favoriteFoods:req.params.food})
-        res.status(200).json({msg:"get all users" ,users})
+        res.status(200).json({msg:"certain food" ,users})
 
     } catch (error) {
         res.status(500).json({msg:"something went wrong" })
@@ -47,7 +47,7 @@ router.get("/getuser/:user",async(req,res)=>{
 
     try {
         const users=await User.findById(req.params.user)
-        res.status(200).json({msg:"get all users" ,users})
+        res.status(200).json({msg:"finded successfully by id" ,users})
 
     } catch (error) {
         res.status(500).json({msg:"something went wrong" })
@@ -61,7 +61,7 @@ router.put("/updateuser/:user",async(req,res)=>{
 
     try {
         const users=await User.findByIdAndUpdate(req.params.user, req.body,{new:true})
-        res.status(200).json({msg:"get all users" ,users})
+        res.status(200).json({msg:"updated successfully" ,users})
 
     } catch (error) {
         res.status(500).json({msg:"something went wrong" })
@@ -73,7 +73,7 @@ router.delete("/deleteuser/:user",async(req,res)=>{
 
     try {
         const users=await User.findByIdAndDelete(req.params.user, req.body)
-        res.status(200).json({msg:"get all users" ,users})
+        res.status(200).json({msg:"deleted successfully" ,users})
 
     } catch (error) {
         res.status(500).json({msg:"something went wrong" })
